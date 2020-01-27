@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">HW2.2.2.AppBar</string>
+    <string name="Settings">Настройки</string>
+    <string name="notes">Заметки</string>
+    <string name="open_notes">Открываем записную книжку</string>
+</resources>
