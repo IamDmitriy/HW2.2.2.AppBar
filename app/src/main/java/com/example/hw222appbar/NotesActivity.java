@@ -1,7 +1,5 @@
 package com.example.hw222appbar;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -9,7 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.hw222appbar.R;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class NotesActivity extends AppCompatActivity {
     private static final String NOTE_TEXT = "note_text";
@@ -19,11 +17,10 @@ public class NotesActivity extends AppCompatActivity {
     private Button mBtnSave;
     private SharedPreferences myNoteSharedPref;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_notes);
 
         initViews();
 

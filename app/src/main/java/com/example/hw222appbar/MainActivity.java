@@ -1,13 +1,14 @@
 package com.example.hw222appbar;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     private Resources res;
@@ -18,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar myToolbar = findViewById(R.id.myToolBar);
-        setSupportActionBar(myToolbar );
+        setSupportActionBar(myToolbar);
 
-        res = getResources(); //TODO не случится ли рассинхрона?
+        res = getResources();
     }
 
     @Override
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.action_open_notes) {
             showToast(res.getString(R.string.open_notes));
+            Intent intent = new Intent(MainActivity.this, NotesActivity.class);
+            startActivity(intent);
             return true;
         }
 
