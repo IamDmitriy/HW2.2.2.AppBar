@@ -5,7 +5,9 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -36,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.listView);
         adapter = new ItemsDataAdapter(this, generatedListContent());
         listView.setAdapter(adapter);
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                showItemData(i);
+                return false;
+            }
+        });
 
     }
 
@@ -82,5 +92,13 @@ public class MainActivity extends AppCompatActivity {
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void showItemData(int position) {
+        ItemData itemData = adapter.getItem(position);
+        Toast.makeText(MainActivity.this,
+                "Title: " + itemData.getTitle() + "\n" +
+                        "Subtitle: " + itemData.getSubtitle() + "\n",
+                Toast.LENGTH_SHORT).show();
     }
 }

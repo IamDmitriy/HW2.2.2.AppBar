@@ -4,4 +4,5 @@
     <string name="notes">Заметки</string>
     <string name="open_notes">Открываем записную книжку</string>
     <string name="btn_save">Сохранить</string>
+    <string name="btn_delete">удалить</string>
 </resources>
