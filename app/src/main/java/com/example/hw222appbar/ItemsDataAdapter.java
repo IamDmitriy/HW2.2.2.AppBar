@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  Адаптер - мост между данными и создаваемыми и управляемыми им View
+ * Адаптер - мост между данными и создаваемыми и управляемыми им View
  */
 public class ItemsDataAdapter extends BaseAdapter {
 
