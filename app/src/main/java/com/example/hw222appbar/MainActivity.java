@@ -5,23 +5,59 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
     private Resources res;
+    private ItemsDataAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        init();
+
+    }
+
+    private void init() {
         Toolbar myToolbar = findViewById(R.id.myToolBar);
         setSupportActionBar(myToolbar);
-
         res = getResources();
+
+        ListView listView = findViewById(R.id.listView);
+        adapter = new ItemsDataAdapter(this, generatedListContent());
+        listView.setAdapter(adapter);
+
+    }
+
+    private List<ItemData> generatedListContent() {
+        List<ItemData> listContent = new ArrayList<>();
+
+        listContent.add(new ItemData(getDrawable(R.drawable.health_app),
+                "Домашнее задание №1.3.1",
+                "Мониторинг здоровья",
+                true));
+
+        listContent.add(new ItemData(getDrawable(R.drawable.adaptive_layout_app),
+                "Домашнее задание №3.3.1",
+                "Адаптивная вёрстка",
+                true));
+
+        listContent.add(new ItemData(getDrawable(R.drawable.switch_language_app),
+                "Домашнее задание №3.3.2",
+                "Переключение языков",
+                true));
+
+        return listContent;
     }
 
     @Override
